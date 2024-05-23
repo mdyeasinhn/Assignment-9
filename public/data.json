@@ -1,0 +1,88 @@
+ [
+      {
+        "id": 1,
+        "estate_title": "Luxurious Family Villa",
+        "segment_name": "Villa",
+        "description": "A beautiful family villa located in a serene environment, perfect for comfortable living.",
+        "price": "$850,000",
+        "status": "sale",
+        "area": "3500 sq ft",
+        "location": "Beverly Hills, CA",
+        "facilities": ["living room", "swimming pool", "kitchen", "garage", "garden"],
+        "image": "https://i.ibb.co/F3wZjqV/img-1.jpg",
+        "view_property_url": "https://example.com/properties/villa1"
+    
+      },
+      {
+        "id": 2,
+        "estate_title": "Modern City Apartment",
+        "segment_name": "Apartment",
+        "description": "A contemporary apartment in the heart of the city with stunning skyline views.",
+        "price": "$500,000",
+        "status": "sale",
+        "area": "1200 sq ft",
+        "location": "New York, NY",
+        "facilities": ["living room", "kitchen", "gym", "parking", "balcony"],
+        "image": "https://i.ibb.co/s5N12X9/img-2.jpg",
+        "view_property_url": "https://example.com/properties/apartment1"
+      
+      },
+      {
+        "id": 3,
+        "estate_title": "Cozy Suburban House",
+        "segment_name": "House",
+        "description": "A cozy house located in a quiet suburb, ideal for families looking for a peaceful environment.",
+        "price": "$350,000",
+        "status": "sale",
+        "area": "2500 sq ft",
+        "location": "Austin, TX",
+        "facilities": ["living room", "kitchen", "garden", "garage", "patio"],
+        "image": "https://i.ibb.co/xLY3hYH/img-3.jpg",
+        "view_property_url": "https://example.com/properties/house1"
+      
+      },
+      {
+        "id": 4,
+        "estate_title": "Luxury Beachside Condo",
+        "segment_name": "Condo",
+        "description": "A stunning beachside condo with ocean views, offering a luxurious lifestyle.",
+        "price": "$750,000",
+        "status": "sale",
+        "area": "1800 sq ft",
+        "location": "Miami, FL",
+        "facilities": ["living room", "swimming pool", "kitchen", "balcony", "gym"],
+        "image": "https://i.ibb.co/19rM6xp/img-4.jpg",
+        "view_property_url": "https://example.com/properties/condo1"
+  
+      },
+      {
+        "id": 5,
+        "estate_title": "Elegant Downtown Loft",
+        "segment_name": "Loft",
+        "description": "An elegant loft in the downtown area, featuring an open floor plan and high ceilings.",
+        "price": "$600,000",
+        "status": "sale",
+        "area": "1600 sq ft",
+        "location": "San Francisco, CA",
+        "facilities": ["living room", "kitchen", "gym", "parking", "roof terrace"],
+        "image": "https://i.ibb.co/Y3bZHtd/img-5.jpg",
+        "view_property_url": "https://example.com/properties/loft1"
+      
+      },
+      {
+        "id": 6,
+        "estate_title": "Spacious Country Home",
+        "segment_name": "House",
+        "description": "A spacious country home with large gardens, perfect for those looking to escape city life.",
+        "price": "$400,000",
+        "status": "sale",
+        "area": "3000 sq ft",
+        "location": "Nashville, TN",
+        "facilities": ["living room", "kitchen", "garden", "garage", "barn"],
+        "image": "https://i.ibb.co/jwhGHDy/img-6.jpg",
+        "view_property_url": "https://example.com/properties/countryhome1"
+   
+      }
+    ]
+  
+  

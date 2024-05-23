@@ -1,20 +1,29 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
-    
+    const { signIn, googleLogin, setUser } = useContext(AuthContext);
+    const [error, setError] = useState('')
+
     const handleLogin = e => {
         e.preventDefault();
         const from = new FormData(e.currentTarget);
         const email = from.get('email');
         const password = from.get('password');
-        signIn(email, password)
 
-        console.log( email, password);
+
+        signIn(email, password)
+            .then(res => console.log(res.user))
+            .catch(error => setError(error.message))
+
+        console.log(email, password);
     };
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(res => setUser(res.user))
+    }
     return (
         <div>
             <h2 className="text-3xl text-center mt-4">Please Login</h2>
@@ -30,17 +39,28 @@ const Login = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input name="password" type="password" placeholder="Password" className="input input-bordered" required />
+                    {
+                        error && <small className="text-red-600 mt-2">{error}</small>
+                    }
                 </div>
-                <div className="form-control">
+                <div className="form-control mt-1">
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
                 </div>
-                <div className="form-control mt-6">
-                    <button name="submit" className="btn btn-primary">Register</button>
+                <div className="form-control mt-3">
+                    <button name="submit" className="btn btn-primary">Login</button>
                 </div>
                 <p className="text-center mt-4">Do Not Have An Account ? <Link className="text-blue-600 font-bold" to='/register'>Register</Link></p>
+                <div className="flex">
+                    <hr className="border" />
+                    <p className="text-center">Or</p>
+                    <hr className="border" />
+                </div>
+
+            <button onClick={handleGoogleLogin} className="btn btn-error">Login with Google </button>
             </form>
+
         </div>
     );
 };

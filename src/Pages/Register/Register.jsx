@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
-    
+    const { createUser, setUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [emailError, setEmailError] = useState('')
+
     const handleRegister = e => {
         e.preventDefault();
         const from = new FormData(e.currentTarget);
@@ -13,7 +15,26 @@ const Register = () => {
         const email = from.get('email');
         const password = from.get('password');
 
+        if (!/@gmail\.com$/.test(email)) {
+            setEmailError('Email must end with @gamil.com')
+            return
+        }
+
+        if (password.length < 6) {
+            setError('password must be 6 characters..')
+            return
+        } else if (!/[A-Z]/.test(password)) {
+            setError("Your password should have at least one upper case characters.");
+            return;
+        }
+        setError('')
+        setEmailError('')
+
         createUser(email, password)
+        .then(res =>{
+            setUser(res.user)
+        })
+        .catch(error=> setError(error.message))
         console.log(name, photo, email, password);
 
     }
@@ -38,6 +59,9 @@ const Register = () => {
                         <span className="label-text">Email</span>
                     </label>
                     <input name="email" type="email" placeholder="email" className="input input-bordered" required />
+                    {
+                        emailError && <small className="text-red-600">{emailError}</small>
+                    }
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -46,12 +70,16 @@ const Register = () => {
                     <input name="password" type="password" placeholder="Password" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
-                 
+
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
+                    {
+                        error && <small className="text-red-600">{error}</small>
+                    }
                 </div>
                 <div className="form-control mt-6">
+
                     <button name="submit" className="btn btn-primary">Register</button>
                 </div>
                 <p className="text-center mt-3">Allready Have An Account ? <Link className="text-blue-600 font-bold" to='/login'>Login</Link></p>
