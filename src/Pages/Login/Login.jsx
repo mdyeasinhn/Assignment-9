@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Login = () => {
-    const { signIn, googleLogin, setUser } = useContext(AuthContext);
+    const { signIn, googleLogin, setUser, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState('')
 
     const handleLogin = e => {
@@ -22,6 +22,10 @@ const Login = () => {
     };
     const handleGoogleLogin = () => {
         googleLogin()
+            .then(res => setUser(res.user))
+    }
+    const handleGithubLogin = () => {
+        githubLogin()
             .then(res => setUser(res.user))
     }
     return (
@@ -52,13 +56,10 @@ const Login = () => {
                     <button name="submit" className="btn btn-primary">Login</button>
                 </div>
                 <p className="text-center mt-4">Do Not Have An Account ? <Link className="text-blue-600 font-bold" to='/register'>Register</Link></p>
-                <div className="flex">
-                    <hr className="border" />
-                    <p className="text-center">Or</p>
-                    <hr className="border" />
-                </div>
+                <div className="divider"> Or          </div>
 
             <button onClick={handleGoogleLogin} className="btn btn-error">Login with Google </button>
+            <button onClick={handleGithubLogin} className="btn btn-error">Login with Github </button>
             </form>
 
         </div>
