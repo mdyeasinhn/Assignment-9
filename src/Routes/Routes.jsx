@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import EroorPage from "../Pages/404Page/EroorPage";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import PropertieDetails from "../Pages/Home/PropertieDetails";
 
 
 
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
               element: <Home></Home>,
               loader: ()=>fetch('data.json')
 
+            },
+            {
+              path: '/eState/:id',
+              element: <PropertieDetails></PropertieDetails>,
+              loader: ()=> fetch("/data.json")
             },
             {
               path: '/errorpage',
