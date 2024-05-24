@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import EroorPage from "../Pages/404Page/EroorPage";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import PropertieDetails from "../Pages/Home/PropertieDetails";
+import Agent from "../Pages/Agent/Agent";
 
 
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
               path: '/register',
               element: <Register></Register>
+            },
+            {
+              path: '/agent',
+              element: <Agent></Agent>
             },
             {
               path:'/profile',

@@ -11,7 +11,7 @@ const PropertieDetails = () => {
 
        return (
         <div className="card lg:card-side bg-base-100 shadow-xl mt-8">
-        <figure><img className="md:w-[200px]lg:h-[500px]"  src={propertie.image} alt="Album"/></figure>
+        <figure><img className="md:h-[200px]lg:h-[500px]"  src={propertie.image} alt="Album"/></figure>
         <div className="card-body">
           <h2 className="card-title">{propertie.estate_title}</h2>
           <p>{propertie.description}</p>
@@ -24,7 +24,7 @@ const PropertieDetails = () => {
           </div>
           
           <p className="flex items-center gap-2"><FaLocationDot/> {propertie.location}</p>
-          <p className="text-xl font-semibold">{propertie.status}</p>
+          {/* <p className="text-xl font-semibold">{propertie.status}</p> */}
       
           <div className="flex justify-between">
                 <h2>Area : {propertie.area}</h2>
