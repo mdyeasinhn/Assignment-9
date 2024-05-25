@@ -4,18 +4,22 @@ import { auth } from '../Firebase/Firebase.config'
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading]= useState(true);
 
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
     const logOut = ()=>{
+        setLoading(true);
         return signOut(auth)
     }
 
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
        
     };
@@ -29,6 +33,7 @@ const AuthProvider = ({ children }) => {
         const unSubscirbe = onAuthStateChanged(auth, currentUser => {
             console.log(' on auth state chanage', currentUser);
             setUser(currentUser);
+            setLoading(false);
             
         });
         return () => {
@@ -40,6 +45,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         user, 
+        loading,
         setUser,
         logOut, 
         googleLogin,

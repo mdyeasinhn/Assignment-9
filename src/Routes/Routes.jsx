@@ -7,6 +7,7 @@ import EroorPage from "../Pages/404Page/EroorPage";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import PropertieDetails from "../Pages/Home/PropertieDetails";
 import Agent from "../Pages/Agent/Agent";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
               path: '/eState/:id',
-              element: <PropertieDetails></PropertieDetails>,
+              element: <PrivateRoute><PropertieDetails></PropertieDetails></PrivateRoute>,
               loader: ()=> fetch("/data.json")
             },
             {
@@ -42,11 +43,11 @@ const router = createBrowserRouter([
             },
             {
               path: '/agent',
-              element: <Agent></Agent>
+              element: <PrivateRoute><Agent></Agent></PrivateRoute>
             },
             {
               path:'/profile',
-              element: <UpdateProfile></UpdateProfile>
+              element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
             }
           ]
     }
