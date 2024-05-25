@@ -59,7 +59,7 @@ const Login = () => {
                 <div className="divider"> Or          </div>
 
             <button onClick={handleGoogleLogin} className="btn btn-error">Login with Google </button>
-            {/* <button onClick={handleGithubLogin} className="btn btn-error">Login with Github </button> */}
+            <button onClick={handleGithubLogin} className="btn btn-error">Login with Github </button>
             </form>
 
         </div>
