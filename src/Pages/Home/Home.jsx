@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import State from "./State";
-import Footer from "../../Shared/Footer/Footer";
 
 
 const Home = () => {
@@ -17,7 +16,7 @@ const Home = () => {
                     data.map(state => <State key={state.id} eState={state}></State>)
                 }
             </div>
-            <Footer/>
+           
         </div>
     );
 };
