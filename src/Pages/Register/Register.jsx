@@ -1,3 +1,4 @@
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -5,7 +6,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const Register = () => {
     const { createUser, setUser } = useContext(AuthContext);
     const [error, setError] = useState('');
-    const [emailError, setEmailError] = useState('')
+    const [emailError, setEmailError] = useState('');
+    const [showPassword, setShowPassword]= useState(false);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -31,10 +33,10 @@ const Register = () => {
         setEmailError('')
 
         createUser(email, password)
-        .then(res =>{
-            setUser(res.user)
-        })
-        .catch(error=> setError(error.message))
+            .then(res => {
+                setUser(res.user)
+            })
+            .catch(error => setError(error.message))
         console.log(name, photo, email, password);
 
     }
@@ -63,11 +65,16 @@ const Register = () => {
                         emailError && <small className="text-red-600">{emailError}</small>
                     }
                 </div>
-                <div className="form-control">
+                <div className="form-control relative">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input name="password" type="password" placeholder="Password" className="input input-bordered" required />
+                    <input name="password" type={showPassword ? "text" : "password"} placeholder="Password" className="input input-bordered" required />
+                    <span className="absolute top-12 right-2" onClick={() => setShowPassword(!showPassword)}>
+                        {
+                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                        }
+                    </span>
                 </div>
                 <div className="form-control">
 
